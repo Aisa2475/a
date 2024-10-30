@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hetcuuuu môn Hóa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: #fff;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 1em;
+        }
+
+        .input-group {
+            margin-bottom: 1em;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 0.5em;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #4facfe;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            border-radius: 5px;
+            background-color: #4facfe;
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            outline: none;
+        }
+
+        .btn:hover {
+            background-color: #00c6fb;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 1em;
+        }
+
+        /* Style cho phần iframe */
+        .iframe-container {
+            display: none; /* Ẩn iframe ban đầu */
+            width: 100%;
+            height: 900px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Nhập mật khẩu</h2>
+        <div class="input-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" placeholder="Nhập mật khẩu">
+        </div>
+        <button class="btn" onclick="checkPassword()">Xác nhận</button>
+        <div id="error-message" class="error"></div>
+    </div>
+
+    <!-- Container để nhúng iframe Azota -->
+    <div class="iframe-container" id="iframe-container">
+        <iframe width="100%" height="100%" src="https://azota.vn/de-thi/eve1pv" title="Azota" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function checkPassword() {
+            // Mật khẩu yêu cầu
+            const correctPassword = "hetcuu"; 
+            const inputPassword = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (inputPassword === correctPassword) {
+                // Hiển thị iframe nếu mật khẩu đúng
+                document.querySelector(".container").style.display = "none"; // Ẩn form mật khẩu
+                document.getElementById("iframe-container").style.display = "block"; // Hiển thị iframe
+            } else {
+                // Hiển thị thông báo lỗi nếu mật khẩu sai
+                errorMessage.textContent = "Mật khẩu hông đúng. thử lại ik.";
+            }
+        }
+    </script>
+</body>
+</html>
